@@ -1,0 +1,1 @@
+web: gunicorn hmsite.wsgi --log-file -

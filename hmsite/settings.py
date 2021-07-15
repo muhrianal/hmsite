@@ -75,10 +75,23 @@ WSGI_APPLICATION = 'hmsite.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'd1hl2d579g0mad',
+
+        'USER': 'kfdhrrylmymtsb',
+
+        'PASSWORD': 'bea815a848920855506fb3fb18a83aff4e07384299908216fd1cee5f0b97075a',
+
+        'HOST': 'ec2-35-169-188-58.compute-1.amazonaws.com',
+
+        'PORT': '5432',
+
     }
+
 }
 
 
