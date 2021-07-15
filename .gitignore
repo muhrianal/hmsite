@@ -50,6 +50,9 @@ env.bak/
 venv.bak/
 pythonenv*
 
+#static
+
+static/
 # Pyre type checker
 .pyre/
 
