@@ -1,0 +1,43 @@
+{% extends 'landing/base.html' %}
+
+{% block style %}
+<style>
+    .card {
+        margin-bottom: 10px;
+    }
+    .title-bookfinder{
+        color: steelblue;
+    }
+</style>
+
+{% endblock style %}
+
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <h1 class="text-center">Welcome to <span class="title-bookfinder">Bookfinder.in</span></h1>
+    <h4 class="text-center">find your favorite book's information here...</h4>
+    <br>
+    <hr>
+    <div class="row">
+        {% for book, authors in books.items %}
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">
+                        A book by {% for author in authors %} {{author.first_name}} {{author.last_name}}, {% endfor %} published at {{book.publication_date}}
+                    </p>
+                    <a href="/detail-book/{{book.id}}" class="btn btn-primary">See details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}

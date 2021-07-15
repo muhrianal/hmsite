@@ -1,0 +1,51 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
+<div class="container">
+    <br>
+
+    <h1>Similarity checker</h1>
+    <p>This feature will accept two inputs string, then the program will check how many percent of the characters in the first input also appear in the second one</p>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" name="inputOne" id="inputOne" placeholder="First string">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="inputTwo" id="inputTwo" placeholder="Second string">
+            </div>
+        </div>
+        <br>
+        <h5 id="message"></h5>
+        
+        <button class="btn btn-primary" id="btn-check">Check</button>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    document.getElementById("btn-check").onclick = function() { checkSimilarity() }
+
+    function checkSimilarity(){
+        var inputOne = document.getElementById("inputOne").value
+        var inputTwo = document.getElementById("inputTwo").value
+
+        var count = 0
+        for (var i = 0; i < inputOne.length; i++){
+            if (inputTwo.toLowerCase().includes(inputOne.charAt(i).toLowerCase())){
+                count++
+            }
+        }
+        var percentage = (count/inputOne.length) * 100
+        
+        document.getElementById('message').innerHTML = `There are ${percentage}% character(s) in first input (${inputOne}) appear in second input (${inputTwo})`
+    }
+
+</script>
+
+
+
+{% endblock script %}

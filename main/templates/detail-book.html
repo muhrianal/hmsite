@@ -1,0 +1,49 @@
+{% extends 'landing/base.html' %}
+
+
+{% block style %}
+
+
+{% endblock style %}
+
+
+{% block content %}
+<div class="container">
+    <br>
+
+    <h2>{{ book_title }}</h2>
+    <p>first published at {{book_pub_date}}</p>
+    <br>
+
+    <h4>The author(s):</h4>
+    {% for author in book_authors %}
+        <ul>
+            <li>
+                <p>
+                    {{ author.first_name }} {{ author.last_name }} ({{author.email}})
+                </p>
+            </li>
+        </ul>
+    {% endfor %}
+    <br>
+    <h4>The publisher:</h4>
+    <p>Name : {{publisher.name}}</p>
+    <p>Address : {{publisher.address}}, {{publisher.city}}, {{publisher.state_province}}, {{publisher.country}}</p>
+    <p>Website : <a href="{{publisher.website}}">{{publisher.website}}</a></p>
+
+    <div class="row">
+        <div class="col-auto">
+            <a href="{% url 'main:update-book' book_id %}" class="btn btn-primary">Edit</a>
+        </div>
+        <div class="col-auto">
+            <a href="{% url 'main:delete-book' book_id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+
+
+{% endblock script %}

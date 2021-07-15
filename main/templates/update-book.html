@@ -1,0 +1,35 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
+<div class="container">
+    <br>
+
+    <form action="{% url 'main:update-book' book_id %}" method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col">
+                <label for="titleInput">Title:</label>
+                {{book_form.title}}
+            </div>
+            <div class="col">
+                <label for="publicationDateInput">Publication Date (format:dd/mm/yyyy):</label>
+                {{book_form.publication_date}}
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    document.getElementById('id_publication_date').classList.add('form-control')
+    document.getElementById('id_publication_date').type = "date"
+    document.getElementById('id_title').classList.add('form-control')
+</script>
+
+{% endblock script %}

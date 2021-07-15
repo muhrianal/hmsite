@@ -1,0 +1,100 @@
+{% extends 'landing/base.html' %}
+
+{% block style %}
+
+{% endblock style %}
+
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <h3>Add a new book here...</h3>
+    <br>
+    <form action="{% url 'main:add-book' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col">
+                <label for="titleInput">Title:</label>
+                {{book_form.title}}
+            </div>
+            <div class="col">
+                <label for="publicationDateInput">Publication Date (format:dd/mm/yyyy):</label>
+                {{book_form.publication_date}}
+            </div>
+
+        </div>
+        <br>
+        <h5>About the author</h5>
+        <div class="row">
+            <div class="col">
+                <label for="firstNameInput">First Name:</label>
+                {{author_form.first_name}}
+            </div>
+            <div class="col">
+                <label for="lastNameInput">Last Name:</label>
+                {{author_form.last_name}}
+            </div>
+            <div class="col">
+                <label for="emailInput">Email:</label>
+                {{author_form.email}}
+            </div>
+        </div>
+
+        <br>
+        <h5>About the publisher</h5>
+        <div class="row">
+            <div class="col">
+                <label for="nameInput">Name:</label>
+                {{publisher_form.name}}
+            </div>
+            <div class="col">
+                <label for="addressInput">Address:</label>
+                {{publisher_form.address}}
+            </div>
+            <div class="col">
+                <label for="cityInput">City:</label>
+                {{publisher_form.city}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="stateProvinceInput">State Province:</label>
+                {{publisher_form.state_province}}
+            </div>
+            <div class="col">
+                <label for="countryInput">Country:</label>
+                {{publisher_form.country}}
+            </div>
+            <div class="col">
+                <label for="websiteInput">Website:</label>
+                {{publisher_form.website}}
+            </div>
+        </div>
+        <br>
+        <div class="text-right">
+            <button class="btn btn-success" type="submit">Submit</button>
+        </div>
+
+    </form>
+</div>
+{% endblock content %}
+
+{% block script %}
+
+<script>
+    document.getElementById('id_publication_date').classList.add('form-control')
+    document.getElementById('id_publication_date').type = "date"
+    document.getElementById('id_title').classList.add('form-control')
+    document.getElementById('id_first_name').classList.add('form-control')
+    document.getElementById('id_last_name').classList.add('form-control')
+    document.getElementById('id_email').classList.add('form-control')
+    document.getElementById('id_city').classList.add('form-control')
+    document.getElementById('id_name').classList.add('form-control')
+    document.getElementById('id_website').classList.add('form-control')
+    document.getElementById('id_country').classList.add('form-control')
+    document.getElementById('id_address').classList.add('form-control')
+    document.getElementById('id_state_province').classList.add('form-control')
+</script>
+{% endblock script %}
